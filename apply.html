@@ -3,79 +3,197 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apply — The Edge Protocol | Steph Skates</title>
+  <title>Apply — The Edge Protocol</title>
   <meta name="description" content="Apply for The Edge Protocol — individualized power skating coaching for serious hockey players targeting NCAA, junior, and professional rosters." />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ── Apply page form styles ── */
-    .apply-header {
-      background: var(--graphite);
-      padding: 4.5rem 0 3.5rem;
+    /* Brand Palette */
+    :root {
+      --primary: #6D93A7;
+      --dark-base: #31363D;
+      --secondary: #7D8FA3;
+      --light-bg: #D2D8DD;
+      --white-bg: #F5F6F7;
+      --platinum: #BFC5C9;
+      --mauve: #88728A;
+      --error: #C0392B;
+      --success: #2D6A4F;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white-bg);
+      color: var(--dark-base);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--white-bg);
+      border-bottom: 1px solid var(--platinum);
+      z-index: 100;
+      padding: 16px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--dark-base);
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--secondary);
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* Page layout */
+    .page-wrapper {
+      padding-top: 80px;
+      min-height: 100vh;
+    }
+
+    .page-header {
+      background: var(--dark-base);
+      color: white;
+      padding: 64px 24px;
       text-align: center;
     }
 
-    .apply-header h1 {
-      color: var(--pearl);
-      font-size: clamp(28px, 4.5vw, 44px);
-      margin-bottom: 1rem;
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(28px, 5vw, 44px);
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 16px;
     }
 
-    .apply-header p {
+    .page-header p {
+      font-size: 16px;
       color: var(--platinum);
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto;
-      font-size: 1rem;
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
-    .apply-header p:last-child { margin-bottom: 0; }
-
-    .form-wrapper {
+    .form-section {
+      padding: 64px 24px 80px;
       max-width: 680px;
       margin: 0 auto;
-      padding: 4rem 1.5rem 5rem;
     }
 
-    /* Section labels for field groups */
-    .field-section-label {
-      font-family: var(--body-font);
-      font-size: 0.7rem;
+    /* Form styles */
+    .form-group-label {
+      font-family: 'DM Sans', sans-serif;
       font-weight: 600;
-      letter-spacing: 0.15em;
+      font-size: 11px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--lagoon);
+      color: var(--primary);
       border-bottom: 1px solid var(--platinum);
-      padding-bottom: 0.6rem;
-      margin: 3rem 0 1.75rem;
+      padding-bottom: 10px;
+      margin-bottom: 28px;
+      margin-top: 48px;
     }
 
-    .field-section-label:first-child { margin-top: 0; }
+    .form-group-label:first-child {
+      margin-top: 0;
+    }
 
     .field-group {
-      margin-bottom: 1.5rem;
+      margin-bottom: 24px;
     }
 
     .field-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 16px;
     }
 
     @media (max-width: 500px) {
-      .field-row { grid-template-columns: 1fr; }
+      .field-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
     }
 
     label {
       display: block;
-      font-size: 0.82rem;
+      font-size: 13px;
       font-weight: 500;
-      color: var(--graphite);
-      margin-bottom: 0.4rem;
+      color: var(--dark-base);
+      margin-bottom: 6px;
       letter-spacing: 0.01em;
     }
 
-    label .req { color: var(--lagoon); margin-left: 2px; }
-    label .opt { font-weight: 400; color: var(--slate); font-size: 0.75rem; margin-left: 4px; }
+    label .required {
+      color: var(--primary);
+      margin-left: 2px;
+    }
+
+    label .optional {
+      font-weight: 400;
+      color: var(--secondary);
+      font-size: 12px;
+      margin-left: 4px;
+    }
 
     input[type="text"],
     input[type="email"],
@@ -84,481 +202,523 @@
     select,
     textarea {
       width: 100%;
-      padding: 0.75rem 0.875rem;
-      font-family: var(--body-font);
-      font-size: 0.97rem;
+      padding: 12px 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
       font-weight: 400;
-      color: var(--graphite);
-      background: #fff;
+      color: var(--dark-base);
+      background: white;
       border: 1px solid var(--platinum);
-      border-radius: 2px;
+      border-radius: 4px;
       outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
       appearance: none;
       -webkit-appearance: none;
     }
 
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--lagoon);
-      box-shadow: 0 0 0 3px rgba(109,147,167,0.12);
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="number"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(109, 147, 167, 0.12);
     }
 
-    input.invalid, select.invalid, textarea.invalid {
-      border-color: #c0392b;
+    input.invalid,
+    select.invalid,
+    textarea.invalid {
+      border-color: var(--error);
     }
 
     select {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237D8FA3' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 0.875rem center;
-      padding-right: 2.25rem;
+      background-position: right 14px center;
+      padding-right: 36px;
       cursor: pointer;
     }
 
     textarea {
       resize: vertical;
-      min-height: 90px;
+      min-height: 100px;
       line-height: 1.55;
     }
 
     .char-count {
-      font-size: 0.75rem;
-      color: var(--slate);
+      font-size: 12px;
+      color: var(--secondary);
       text-align: right;
-      margin-top: 0.25rem;
+      margin-top: 4px;
     }
 
-    .char-count.near-limit { color: #c0392b; }
+    .char-count.near-limit {
+      color: #C0392B;
+    }
 
     .field-error {
-      font-size: 0.75rem;
-      color: #c0392b;
-      margin-top: 0.3rem;
+      font-size: 12px;
+      color: var(--error);
+      margin-top: 5px;
       display: none;
     }
 
-    .field-error.visible { display: block; }
+    .field-error.visible {
+      display: block;
+    }
 
     /* Radio group */
     .radio-group {
       display: flex;
-      gap: 0.75rem;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 0.25rem;
+      margin-top: 2px;
     }
 
     .radio-option {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1rem;
+      gap: 8px;
+      padding: 10px 16px;
       border: 1px solid var(--platinum);
-      border-radius: 2px;
+      border-radius: 4px;
       cursor: pointer;
-      background: #fff;
-      font-size: 0.875rem;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      background: white;
+      font-size: 14px;
       font-weight: 500;
-      color: var(--graphite);
-      transition: border-color 0.2s, background 0.2s;
+      color: var(--dark-base);
       user-select: none;
     }
 
     .radio-option input[type="radio"] {
-      width: 15px;
-      height: 15px;
-      accent-color: var(--lagoon);
+      width: 16px;
+      height: 16px;
+      accent-color: var(--primary);
       cursor: pointer;
       margin: 0;
       flex-shrink: 0;
     }
 
     .radio-option:has(input:checked) {
-      border-color: var(--lagoon);
-      background: rgba(109,147,167,0.07);
+      border-color: var(--primary);
+      background: rgba(109, 147, 167, 0.06);
     }
 
-    /* Submit area */
+    /* Submit */
     .submit-area {
-      margin-top: 3rem;
-      padding-top: 2rem;
+      margin-top: 48px;
+      padding-top: 32px;
       border-top: 1px solid var(--platinum);
       text-align: center;
     }
 
     .submit-btn {
       display: inline-block;
-      padding: 1rem 3rem;
-      font-family: var(--body-font);
+      padding: 16px 48px;
+      font-family: 'DM Sans', sans-serif;
       font-weight: 600;
-      font-size: 0.92rem;
-      letter-spacing: 0.1em;
+      font-size: 14px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      background: var(--lagoon);
-      color: var(--pearl);
+      background: var(--primary);
+      color: white;
       border: none;
-      border-radius: 2px;
+      border-radius: 4px;
       cursor: pointer;
+      transition: background 0.25s ease, opacity 0.25s ease;
       width: 100%;
-      max-width: 380px;
-      transition: background 0.2s;
+      max-width: 360px;
     }
 
-    .submit-btn:hover:not(:disabled) { background: var(--graphite); }
-    .submit-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+    .submit-btn:hover:not(:disabled) {
+      background: #5a7a8f;
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
 
     .submit-note {
-      margin-top: 0.875rem;
-      font-size: 0.82rem;
-      color: var(--slate);
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--secondary);
     }
 
     .form-error-banner {
       background: #fdf0ef;
       border: 1px solid #f0c0ba;
-      color: #c0392b;
-      border-radius: 2px;
-      padding: 0.875rem 1.125rem;
-      font-size: 0.875rem;
-      margin-top: 1.25rem;
+      color: var(--error);
+      border-radius: 4px;
+      padding: 14px 18px;
+      font-size: 14px;
+      margin-top: 20px;
       display: none;
     }
 
-    .form-error-banner.visible { display: block; }
+    .form-error-banner.visible {
+      display: block;
+    }
 
-    /* Success */
+    /* Success state */
     #success-view {
       display: none;
       text-align: center;
-      padding: 5rem 1.5rem;
+      padding: 80px 24px;
     }
 
     #success-view .check-icon {
-      width: 60px;
-      height: 60px;
-      background: rgba(109,147,167,0.12);
+      width: 64px;
+      height: 64px;
+      background: rgba(109, 147, 167, 0.12);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1.75rem;
-      font-size: 1.5rem;
-      color: var(--lagoon);
+      margin: 0 auto 28px;
+      font-size: 28px;
     }
 
     #success-view h2 {
-      font-family: var(--display-font);
+      font-family: 'Cormorant Garamond', serif;
       font-weight: 700;
-      font-size: clamp(24px, 3.5vw, 34px);
-      color: var(--graphite);
-      margin-bottom: 1rem;
+      font-size: 30px;
+      color: var(--dark-base);
+      margin-bottom: 16px;
     }
 
     #success-view p {
-      font-size: 1rem;
-      color: var(--slate);
-      max-width: 420px;
-      margin: 0 auto 2rem;
+      font-size: 16px;
+      color: var(--secondary);
+      max-width: 440px;
+      margin: 0 auto 32px;
       line-height: 1.65;
+    }
+
+    #success-view a {
+      color: var(--primary);
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-base);
+      color: var(--platinum);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-<!-- ── Navigation ── -->
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-wordmark">Steph<span>Skates</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="pilot.html">Pilot Cohort</a></li>
-      <li><a href="apply.html" class="nav-cta">Apply</a></li>
-    </ul>
-  </div>
-</nav>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">The Edge <span>Protocol</span></a>
+      <div class="nav-links">
+        <a href="index.html#problem">Why Skating</a>
+        <a href="index.html#methodology">The Method</a>
+        <a href="about.html">About</a>
+        <a href="founding-cohort.html">Founding Cohort</a>
+        <a href="apply.html" style="background: var(--primary); color: white; padding: 10px 20px; border-radius: 4px; font-size: 13px; font-weight: 600;">Apply</a>
+      </div>
+    </div>
+  </nav>
 
-<!-- ── Page Header ── -->
-<div class="apply-header">
-  <div class="container--narrow">
-    <h1>Apply for The Edge Protocol</h1>
-    <p>This takes about 5 minutes. No commitment required — we review every application and reach out within 48 hours if your player looks like a fit.</p>
-  </div>
-</div>
+  <div class="page-wrapper">
 
-<!-- ── Success State ── -->
-<div id="success-view">
-  <div class="check-icon">✓</div>
-  <h2>Application Submitted</h2>
-  <p>Thank you — we will review your application and be in touch within 48 hours.</p>
-  <a href="index.html" class="btn btn--outline" style="margin-top: 0.5rem;">← Back to home</a>
-</div>
+    <div class="page-header">
+      <h1>Apply for The Edge Protocol</h1>
+      <p>This takes about 5 minutes. No commitment required — we'll review your application and reach out to schedule an intake call if your player looks like a fit.</p>
+    </div>
 
-<!-- ── Application Form ── -->
-<div class="form-wrapper" id="form-wrapper">
+    <div class="form-section">
 
-  <form id="apply-form" novalidate>
+      <!-- Success state -->
+      <div id="success-view">
+        <div class="check-icon">✓</div>
+        <h2>Application Submitted</h2>
+        <p>Thank you — we will review your application and be in touch within 48 hours.</p>
+        <a href="index.html">← Back to home</a>
+      </div>
 
-    <!-- Player Information -->
-    <div class="field-section-label">Player Information</div>
+      <!-- Form -->
+      <form id="apply-form" novalidate>
 
-    <div class="field-group">
-      <div class="field-row">
-        <div>
-          <label for="player-first">First name <span class="req">*</span></label>
-          <input type="text" id="player-first" name="player_first_name" autocomplete="given-name" placeholder="First name" />
-          <div class="field-error" id="player-first-error">Please enter the player's first name.</div>
+        <!-- Section 1: Player Information -->
+        <div class="form-group-label">Player Information</div>
+
+        <div class="field-group">
+          <div class="field-row">
+            <div>
+              <label for="player-first">First name <span class="required">*</span></label>
+              <input type="text" id="player-first" name="player_first_name" autocomplete="given-name" placeholder="First name" />
+              <div class="field-error" id="player-first-error">Please enter the player's first name.</div>
+            </div>
+            <div>
+              <label for="player-last">Last name <span class="required">*</span></label>
+              <input type="text" id="player-last" name="player_last_name" autocomplete="family-name" placeholder="Last name" />
+              <div class="field-error" id="player-last-error">Please enter the player's last name.</div>
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="player-last">Last name <span class="req">*</span></label>
-          <input type="text" id="player-last" name="player_last_name" autocomplete="family-name" placeholder="Last name" />
-          <div class="field-error" id="player-last-error">Please enter the player's last name.</div>
+
+        <div class="field-group">
+          <label for="player-birth-year">Birth year <span class="required">*</span></label>
+          <input type="number" id="player-birth-year" name="player_birth_year" min="2000" max="2015" placeholder="e.g. 2008" style="max-width: 180px;" />
+          <div class="field-error" id="player-birth-year-error">Please enter a valid birth year (2000–2015).</div>
         </div>
-      </div>
-    </div>
 
-    <div class="field-group">
-      <label for="player-birth-year">Birth year <span class="req">*</span></label>
-      <input type="number" id="player-birth-year" name="player_birth_year" min="2000" max="2015" placeholder="e.g. 2008" style="max-width: 180px;" />
-      <div class="field-error" id="player-birth-year-error">Please enter a valid birth year (2000–2015).</div>
-    </div>
-
-    <div class="field-group">
-      <label for="player-level">Current level <span class="req">*</span></label>
-      <select id="player-level" name="player_current_level">
-        <option value="">Select current level…</option>
-        <option value="AAA Midget">AAA Midget</option>
-        <option value="AAA Bantam">AAA Bantam</option>
-        <option value="Tier 1 Junior">Tier 1 Junior (USHL, BCHL, etc.)</option>
-        <option value="Tier 2 Junior">Tier 2 Junior (NAHL, etc.)</option>
-        <option value="College">College (NCAA)</option>
-        <option value="Other">Other</option>
-      </select>
-      <div class="field-error" id="player-level-error">Please select the player's current level.</div>
-    </div>
-
-    <div class="field-group">
-      <label for="player-team">Current team / program name <span class="req">*</span></label>
-      <input type="text" id="player-team" name="player_team" placeholder="e.g. Minnetonka AAA Bantam" />
-      <div class="field-error" id="player-team-error">Please enter the player's current team or program.</div>
-    </div>
-
-    <!-- Skating Context -->
-    <div class="field-section-label">Skating Context</div>
-
-    <div class="field-group">
-      <label>Has your player received skating feedback from scouts or coaches in the last 2 years? <span class="req">*</span></label>
-      <div class="radio-group" id="skating-feedback-group">
-        <label class="radio-option">
-          <input type="radio" name="skating_feedback_received" value="Yes" />
-          Yes
-        </label>
-        <label class="radio-option">
-          <input type="radio" name="skating_feedback_received" value="No" />
-          No
-        </label>
-        <label class="radio-option">
-          <input type="radio" name="skating_feedback_received" value="Unsure" />
-          Unsure
-        </label>
-      </div>
-      <div class="field-error" id="skating-feedback-error">Please select an option.</div>
-    </div>
-
-    <div class="field-group">
-      <label for="skating-description">Brief description of the skating issue or feedback received <span class="opt">(optional)</span></label>
-      <textarea id="skating-description" name="skating_description" maxlength="200" placeholder="e.g. Scout noted edge weakness on crossovers and transitions to the right side…"></textarea>
-      <div class="char-count" id="skating-char-count">0 / 200</div>
-    </div>
-
-    <!-- Contact Information -->
-    <div class="field-section-label">Contact Information</div>
-
-    <div class="field-group">
-      <div class="field-row">
-        <div>
-          <label for="parent-first">Parent / guardian first name <span class="req">*</span></label>
-          <input type="text" id="parent-first" name="parent_first_name" autocomplete="given-name" placeholder="First name" />
-          <div class="field-error" id="parent-first-error">Please enter a first name.</div>
+        <div class="field-group">
+          <label for="player-level">Current level <span class="required">*</span></label>
+          <select id="player-level" name="player_current_level">
+            <option value="">Select current level…</option>
+            <option value="AAA Midget">AAA Midget</option>
+            <option value="AAA Bantam">AAA Bantam</option>
+            <option value="Tier 1 Junior">Tier 1 Junior</option>
+            <option value="Tier 2 Junior">Tier 2 Junior</option>
+            <option value="College">College</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="field-error" id="player-level-error">Please select the player's current level.</div>
         </div>
-        <div>
-          <label for="parent-last">Parent / guardian last name <span class="req">*</span></label>
-          <input type="text" id="parent-last" name="parent_last_name" autocomplete="family-name" placeholder="Last name" />
-          <div class="field-error" id="parent-last-error">Please enter a last name.</div>
+
+        <div class="field-group">
+          <label for="player-team">Current team / program name <span class="required">*</span></label>
+          <input type="text" id="player-team" name="player_team" placeholder="e.g. Minnetonka AAA Bantam" />
+          <div class="field-error" id="player-team-error">Please enter the player's current team or program.</div>
         </div>
-      </div>
-    </div>
 
-    <div class="field-group">
-      <label for="email">Email address <span class="req">*</span></label>
-      <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" />
-      <div class="field-error" id="email-error">Please enter a valid email address.</div>
-    </div>
+        <!-- Section 2: Skating Context -->
+        <div class="form-group-label">Skating Context</div>
 
-    <div class="field-group">
-      <label for="phone">Phone number <span class="opt">(optional)</span></label>
-      <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(612) 555-0100" />
-    </div>
+        <div class="field-group">
+          <label>Have you received skating feedback from scouts or coaches in the last 2 years? <span class="required">*</span></label>
+          <div class="radio-group" id="skating-feedback-group">
+            <label class="radio-option">
+              <input type="radio" name="skating_feedback_received" value="Yes" />
+              Yes
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="skating_feedback_received" value="No" />
+              No
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="skating_feedback_received" value="Unsure" />
+              Unsure
+            </label>
+          </div>
+          <div class="field-error" id="skating-feedback-error">Please select an option.</div>
+        </div>
 
-    <div class="field-group">
-      <label for="referral-source">How did you hear about The Edge Protocol? <span class="req">*</span></label>
-      <select id="referral-source" name="referral_source">
-        <option value="">Select…</option>
-        <option value="Social media">Social media (Instagram / TikTok)</option>
-        <option value="Referral">Referral from another family</option>
-        <option value="Coach or scout">Coach or scout recommendation</option>
-        <option value="Google">Google / web search</option>
-        <option value="Other">Other</option>
-      </select>
-      <div class="field-error" id="referral-source-error">Please select how you heard about us.</div>
-    </div>
+        <div class="field-group">
+          <label for="skating-description">Brief description of the skating issue or feedback received <span class="optional">(optional)</span></label>
+          <textarea id="skating-description" name="skating_description" maxlength="200" placeholder="e.g. Scout noted edge weakness on crossovers and transitions to the right side…"></textarea>
+          <div class="char-count" id="skating-char-count">0 / 200</div>
+        </div>
 
-    <!-- Submit -->
-    <div class="submit-area">
-      <button type="submit" class="submit-btn" id="submit-btn">Submit Application</button>
-      <p class="submit-note">We review every application within 48 hours and follow up by email.</p>
-      <div class="form-error-banner" id="form-error-banner">
-        Something went wrong submitting your application. Please email us directly at
-        <a href="mailto:stephsk8s@gmail.com" style="color: inherit; text-decoration: underline;">stephsk8s@gmail.com</a>.
-      </div>
-    </div>
+        <!-- Section 3: Contact Information -->
+        <div class="form-group-label">Contact Information</div>
 
-  </form>
-</div>
+        <div class="field-group">
+          <div class="field-row">
+            <div>
+              <label for="parent-first">Parent / guardian first name <span class="required">*</span></label>
+              <input type="text" id="parent-first" name="parent_first_name" autocomplete="given-name" placeholder="First name" />
+              <div class="field-error" id="parent-first-error">Please enter a first name.</div>
+            </div>
+            <div>
+              <label for="parent-last">Parent / guardian last name <span class="required">*</span></label>
+              <input type="text" id="parent-last" name="parent_last_name" autocomplete="family-name" placeholder="Last name" />
+              <div class="field-error" id="parent-last-error">Please enter a last name.</div>
+            </div>
+          </div>
+        </div>
 
-<!-- ── Footer ── -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div>
-        <div class="footer__wordmark">Steph<span>Skates</span></div>
-        <div class="footer__tagline">Edges First. Always.</div>
-      </div>
-      <ul class="footer__links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Stephanie</a></li>
-        <li><a href="edge-audit.html">Edge Audit</a></li>
-        <li><a href="edge-sprint.html">Edge Sprint</a></li>
-        <li><a href="90-day-protocol.html">90-Day Protocol</a></li>
-        <li><a href="pilot.html">Founding Cohort</a></li>
-        <li><a href="apply.html">Apply</a></li>
-      </ul>
-      <div>
-        <p style="font-size: 0.9rem; color: var(--mist);">The Edge Protocol<br>Twin Cities, MN</p>
-        <p style="font-size: 0.85rem; color: var(--slate); margin-top: 0.5rem;">The jump to elite starts with your edges.</p>
-      </div>
-    </div>
-    <p class="footer__copy">&copy; 2026 Steph Skates. All rights reserved.</p>
-  </div>
-</footer>
+        <div class="field-group">
+          <label for="email">Email address <span class="required">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" />
+          <div class="field-error" id="email-error">Please enter a valid email address.</div>
+        </div>
 
-<script>
-  // Character counter
-  const skatingDesc = document.getElementById('skating-description');
-  const charCount = document.getElementById('skating-char-count');
-  skatingDesc.addEventListener('input', function () {
-    const len = this.value.length;
-    charCount.textContent = len + ' / 200';
-    charCount.classList.toggle('near-limit', len >= 180);
-  });
+        <div class="field-group">
+          <label for="phone">Phone number <span class="optional">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(612) 555-0100" />
+        </div>
 
-  // Validation helpers
-  function setError(fieldId, errorId, hasError) {
-    const field = document.getElementById(fieldId);
-    const err = document.getElementById(errorId);
-    if (hasError) {
-      field && field.classList.add('invalid');
-      err && err.classList.add('visible');
-    } else {
-      field && field.classList.remove('invalid');
-      err && err.classList.remove('visible');
-    }
-    return !hasError;
-  }
+        <div class="field-group">
+          <label for="referral-source">How did you hear about The Edge Protocol? <span class="required">*</span></label>
+          <select id="referral-source" name="referral_source">
+            <option value="">Select…</option>
+            <option value="Social media">Social media</option>
+            <option value="Referral">Referral</option>
+            <option value="Google">Google</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="field-error" id="referral-source-error">Please select how you heard about us.</div>
+        </div>
 
-  function isValidEmail(v) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
-  }
+        <!-- Submit -->
+        <div class="submit-area">
+          <button type="submit" class="submit-btn" id="submit-btn">Submit Application</button>
+          <p class="submit-note">We review every application within 48 hours.</p>
+          <div class="form-error-banner" id="form-error-banner">
+            Something went wrong submitting your application. Please try again or email us directly at <strong>stephsk8s@gmail.com</strong>.
+          </div>
+        </div>
 
-  function validateForm() {
-    let ok = true;
-    ok = setError('player-first',      'player-first-error',      !document.getElementById('player-first').value.trim())      && ok;
-    ok = setError('player-last',       'player-last-error',       !document.getElementById('player-last').value.trim())       && ok;
-    const yr = parseInt(document.getElementById('player-birth-year').value, 10);
-    ok = setError('player-birth-year', 'player-birth-year-error', isNaN(yr) || yr < 2000 || yr > 2015)                        && ok;
-    ok = setError('player-level',      'player-level-error',      !document.getElementById('player-level').value)             && ok;
-    ok = setError('player-team',       'player-team-error',       !document.getElementById('player-team').value.trim())       && ok;
+      </form>
+    </div><!-- /.form-section -->
+  </div><!-- /.page-wrapper -->
 
-    const feedbackPicked = document.querySelector('input[name="skating_feedback_received"]:checked');
-    const feedbackErr = document.getElementById('skating-feedback-error');
-    if (!feedbackPicked) { feedbackErr.classList.add('visible'); ok = false; }
-    else { feedbackErr.classList.remove('visible'); }
+  <footer>
+    <p>&copy; 2026 The Edge Protocol. Twin Cities, Minnesota.</p>
+  </footer>
 
-    ok = setError('parent-first',   'parent-first-error',   !document.getElementById('parent-first').value.trim())     && ok;
-    ok = setError('parent-last',    'parent-last-error',    !document.getElementById('parent-last').value.trim())      && ok;
-    ok = setError('email',          'email-error',          !isValidEmail(document.getElementById('email').value))     && ok;
-    ok = setError('referral-source','referral-source-error',!document.getElementById('referral-source').value)         && ok;
-    return ok;
-  }
+  <script>
+    // Character counter for skating description
+    const skatingDesc = document.getElementById('skating-description');
+    const charCount = document.getElementById('skating-char-count');
 
-  // Clear errors on input
-  ['player-first','player-last','player-birth-year','player-level','player-team',
-   'parent-first','parent-last','email','referral-source'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.addEventListener('input', function () {
-      this.classList.remove('invalid');
-      const err = document.getElementById(id + '-error');
-      if (err) err.classList.remove('visible');
+    skatingDesc.addEventListener('input', function () {
+      const len = this.value.length;
+      charCount.textContent = len + ' / 200';
+      charCount.classList.toggle('near-limit', len >= 180);
     });
-  });
 
-  document.querySelectorAll('input[name="skating_feedback_received"]').forEach(r => {
-    r.addEventListener('change', () =>
-      document.getElementById('skating-feedback-error').classList.remove('visible'));
-  });
-
-  // Form submit
-  document.getElementById('apply-form').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    if (!validateForm()) {
-      const firstBad = document.querySelector('.invalid, .field-error.visible');
-      if (firstBad) firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
-
-    const btn = document.getElementById('submit-btn');
-    const errBanner = document.getElementById('form-error-banner');
-    btn.disabled = true;
-    btn.textContent = 'Submitting…';
-    errBanner.classList.remove('visible');
-
-    const formData = new FormData(this);
-
-    try {
-      // NOTE: Replace YOUR_FORMSPREE_ID with the ID from formspree.io
-      // Sign up with stephsk8s@gmail.com → New form → copy the ID
-      const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
-      const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (res.ok) {
-        document.getElementById('form-wrapper').style.display = 'none';
-        document.querySelector('.apply-header').style.display = 'none';
-        document.getElementById('success-view').style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Validation helpers
+    function setError(fieldId, errorId, show) {
+      const field = document.getElementById(fieldId);
+      const error = document.getElementById(errorId);
+      if (show) {
+        field.classList.add('invalid');
+        error.classList.add('visible');
       } else {
-        throw new Error('non-ok');
+        field.classList.remove('invalid');
+        error.classList.remove('visible');
       }
-    } catch {
-      errBanner.classList.add('visible');
-      btn.disabled = false;
-      btn.textContent = 'Submit Application';
-      errBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return !show;
     }
-  });
-</script>
 
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    }
+
+    function validateForm() {
+      let valid = true;
+
+      valid = setError('player-first', 'player-first-error',
+        !document.getElementById('player-first').value.trim()) && valid;
+
+      valid = setError('player-last', 'player-last-error',
+        !document.getElementById('player-last').value.trim()) && valid;
+
+      const year = parseInt(document.getElementById('player-birth-year').value, 10);
+      valid = setError('player-birth-year', 'player-birth-year-error',
+        isNaN(year) || year < 2000 || year > 2015) && valid;
+
+      valid = setError('player-level', 'player-level-error',
+        !document.getElementById('player-level').value) && valid;
+
+      valid = setError('player-team', 'player-team-error',
+        !document.getElementById('player-team').value.trim()) && valid;
+
+      // Radio group: skating feedback
+      const feedbackSelected = document.querySelector('input[name="skating_feedback_received"]:checked');
+      const feedbackError = document.getElementById('skating-feedback-error');
+      if (!feedbackSelected) {
+        feedbackError.classList.add('visible');
+        valid = false;
+      } else {
+        feedbackError.classList.remove('visible');
+      }
+
+      valid = setError('parent-first', 'parent-first-error',
+        !document.getElementById('parent-first').value.trim()) && valid;
+
+      valid = setError('parent-last', 'parent-last-error',
+        !document.getElementById('parent-last').value.trim()) && valid;
+
+      const emailVal = document.getElementById('email').value;
+      valid = setError('email', 'email-error', !isValidEmail(emailVal)) && valid;
+
+      valid = setError('referral-source', 'referral-source-error',
+        !document.getElementById('referral-source').value) && valid;
+
+      return valid;
+    }
+
+    // Clear error on input
+    ['player-first', 'player-last', 'player-birth-year', 'player-level',
+     'player-team', 'parent-first', 'parent-last', 'email', 'referral-source'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', function () {
+          this.classList.remove('invalid');
+          const err = document.getElementById(id + '-error');
+          if (err) err.classList.remove('visible');
+        });
+      }
+    });
+
+    document.querySelectorAll('input[name="skating_feedback_received"]').forEach(radio => {
+      radio.addEventListener('change', function () {
+        document.getElementById('skating-feedback-error').classList.remove('visible');
+      });
+    });
+
+    // Form submit
+    document.getElementById('apply-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        // Scroll to first error
+        const firstError = document.querySelector('.invalid, .field-error.visible');
+        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const btn = document.getElementById('submit-btn');
+      const errorBanner = document.getElementById('form-error-banner');
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+      errorBanner.classList.remove('visible');
+
+      // Collect form data
+      const formData = new FormData(this);
+
+      try {
+        // SETUP REQUIRED: Replace YOUR_FORMSPREE_ID below with your Formspree form ID.
+        // 1. Go to https://formspree.io and sign up with stephsk8s@gmail.com
+        // 2. Create a new form — you'll get an ID like "xkgwdpzn"
+        // 3. Replace YOUR_FORMSPREE_ID with that ID
+        const FORMSPREE_ID = 'mvzjgnek';
+
+        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          document.getElementById('apply-form').style.display = 'none';
+          document.querySelector('.page-header').style.display = 'none';
+          document.getElementById('success-view').style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error('Server error');
+        }
+      } catch (err) {
+        errorBanner.classList.add('visible');
+        btn.disabled = false;
+        btn.textContent = 'Submit Application';
+        errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
 </body>
 </html>
