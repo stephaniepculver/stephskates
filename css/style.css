@@ -708,3 +708,8 @@ section + section {
     padding: 60px 0;
   }
 }
+/* ── Photo blocks (EDG-200) ── */
+.photo-block { margin: 0; line-height: 0; overflow: hidden; }
+.photo-block img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.photo-block--portrait  { aspect-ratio: 3 / 4; }
+.photo-block--landscape { aspect-ratio: 4 / 3; }

@@ -99,10 +99,17 @@
       font-size: 0.8rem;
       color: var(--slate);
     }
+    /* ── Real photo blocks ── */
+    .photo-block { margin: 0; line-height: 0; }
+    .photo-block img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+    .photo-block--portrait { aspect-ratio: 3 / 4; overflow: hidden; }
+    .photo-block--landscape { aspect-ratio: 4 / 3; overflow: hidden; }
+    .photo-block--square { aspect-ratio: 1 / 1; max-width: 340px; overflow: hidden; }
+    .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .photo-grid img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top center; display: block; }
     @media (max-width: 768px) {
       .hero-two-col { grid-template-columns: 1fr; }
-      /* portrait crops to square at 375px per spec */
-      .img-placeholder--portrait { aspect-ratio: 1 / 1; }
+      .photo-block--portrait { aspect-ratio: 1 / 1; }
     }
   </style>
 </head>
@@ -132,11 +139,9 @@
         <a href="apply.html" class="btn btn--primary btn--large">Apply for The Edge Protocol &rarr;</a>
       </div>
       <div>
-        <div class="img-placeholder img-placeholder--portrait">
-          <span class="img-placeholder__label">Portrait Photo</span>
-          <span>Full-width portrait or on-ice coaching photo. Natural rink lighting, warm and approachable.</span>
-          <span style="font-size:0.7rem; opacity:0.6;">1920 &times; 800 px landscape</span>
-        </div>
+        <figure class="photo-block photo-block--portrait">
+          <img src="images/stephanie-coaching-portrait.jpg" alt="Stephanie Culver on ice in coaching jacket, leaning on the boards at a Twin Cities rink" />
+        </figure>
       </div>
     </div>
   </div>
@@ -155,9 +160,9 @@
         <p>That background is not incidental to The Edge Protocol. It is the program.</p>
       </div>
       <div>
-        <div class="img-placeholder img-placeholder--landscape">
-          <span class="img-placeholder__label">Competitive Career Gallery</span>
-          <span>2–4 photos: competition performance, team photo with Haydenettes, or national championship moment. Caption each with year and event.</span>
+        <div class="photo-grid">
+          <img src="images/stephanie-competition-blue.jpg" alt="Stephanie Culver performing at a national-level figure skating event — blue competition dress" />
+          <img src="images/stephanie-competition-4.jpg" alt="Stephanie Culver performing — Xcel Energy Center, St. Paul" />
         </div>
         <ul class="cred-list">
           <li>3&times; U.S. Synchronized Skating National Champion</li>
@@ -174,10 +179,9 @@
   <div class="container">
     <div class="two-col">
       <div>
-        <div class="img-placeholder img-placeholder--square">
-          <span class="img-placeholder__label">Judging Credential Visual</span>
-          <span>USFS badge, certification, or photo of Stephanie at a judging or testing event. Authenticity over stock.</span>
-        </div>
+        <figure class="photo-block photo-block--portrait">
+          <img src="images/stephanie-coaching-papers.jpg" alt="Stephanie Culver reviewing evaluation materials rinkside — coaching and judging context" />
+        </figure>
       </div>
       <div>
         <p class="section__label">The Evaluation Credential</p>
@@ -205,10 +209,9 @@
         <p>The program is delivered in person, on ice, at Twin Cities-area rinks — built specifically around what she sees when she watches your player skate.</p>
       </div>
       <div>
-        <div class="img-placeholder img-placeholder--landscape">
-          <span class="img-placeholder__label">On-Ice Coaching Photo</span>
-          <span>Stephanie working 1-on-1 with a player — ideally at a recognizable Twin Cities rink. Clean, natural lighting.</span>
-        </div>
+        <figure class="photo-block photo-block--landscape">
+          <img src="images/stephanie-coaching-on-ice.jpg" alt="Stephanie Culver on ice in coaching attire — Twin Cities rink" />
+        </figure>
         <ul class="cred-list">
           <li>20+ years coaching, Twin Cities</li>
           <li>St. Paul Figure Skating Club — active coaching contract</li>
@@ -231,10 +234,9 @@
         <p style="font-style: italic; color: var(--platinum);">She works with a small number of players at a time. Every session is 1-on-1. Every progression is built around one player's specific deficiencies — the same precision she applied to her own skating for 15 years at the national and world level.</p>
       </div>
       <div>
-        <div class="img-placeholder img-placeholder--portrait">
-          <span class="img-placeholder__label">Philosophy Image</span>
-          <span>Candid or staged: Stephanie reviewing video with a player, observing technique, or a quiet on-ice moment. Warm, human, not formal.</span>
-        </div>
+        <figure class="photo-block photo-block--portrait">
+          <img src="images/stephanie-competition-3.jpg" alt="Stephanie Culver on ice — Tria Rink, St. Paul, MN" />
+        </figure>
       </div>
     </div>
   </div>
