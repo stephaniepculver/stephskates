@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edge Sprint — The Edge Protocol | Steph Skates</title>
+  <meta name="description" content="6 private sessions over 4 weeks with before/after video analysis. Real, measurable edge improvement — on video." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .offer-hero {
+      background: var(--graphite);
+      padding: 5rem 0 4rem;
+    }
+    .offer-hero .badge {
+      font-family: var(--body-font);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lagoon);
+      margin-bottom: 1.25rem;
+    }
+    .offer-hero h1 {
+      color: var(--pearl);
+      font-size: clamp(30px, 5vw, 52px);
+      max-width: 760px;
+      margin-bottom: 1.5rem;
+    }
+    .offer-hero .subhead {
+      color: var(--platinum);
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      max-width: 640px;
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+    .offer-hero .subhead:last-child { margin-bottom: 0; }
+    .included-list {
+      list-style: none;
+      margin: 2rem 0 0;
+    }
+    .included-list li {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--platinum);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .included-list li:first-child { border-top: 1px solid var(--platinum); }
+    .included-list .check {
+      color: var(--lagoon);
+      font-size: 1.1rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .included-list strong { display: block; font-weight: 600; color: var(--graphite); }
+    .included-list span { font-size: 0.9rem; color: var(--slate); }
+    .audience-block {
+      background: var(--pearl);
+      border: 1px solid var(--platinum);
+      border-radius: 2px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .audience-block h3 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lagoon);
+      margin-bottom: 1rem;
+    }
+    .bridge-section {
+      background: var(--graphite);
+      padding: 4rem 0;
+    }
+    .bridge-section h2 { color: var(--pearl); margin-bottom: 1rem; }
+    .bridge-section p { color: var(--platinum); margin-bottom: 1.75rem; }
+    .cta-section {
+      background: var(--lagoon);
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .cta-section h2 {
+      color: var(--pearl);
+      font-family: var(--display-font);
+      font-size: clamp(26px, 4vw, 42px);
+      margin-bottom: 1rem;
+    }
+    .cta-section p { color: rgba(245,246,247,0.85); margin-bottom: 2rem; }
+    .btn--pearl {
+      background: var(--pearl);
+      color: var(--graphite);
+      border-color: var(--pearl);
+    }
+    .btn--pearl:hover { background: transparent; color: var(--pearl); opacity: 1; }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .timeline-week {
+      background: var(--pearl);
+      border: 1px solid var(--platinum);
+      border-radius: 2px;
+      padding: 1.5rem;
+    }
+    .timeline-week__label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lagoon);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-week__sessions {
+      font-family: var(--display-font);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--graphite);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-week p {
+      font-size: 0.85rem;
+      color: var(--slate);
+      margin-bottom: 0;
+      line-height: 1.4;
+    }
+    @media (max-width: 700px) {
+      .timeline { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 440px) {
+      .timeline { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-wordmark">Steph<span>Skates</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="pilot.html">Pilot Cohort</a></li>
+      <li><a href="apply.html" class="nav-cta">Apply</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="offer-hero">
+  <div class="container">
+    <p class="badge">Edge Sprint &mdash; 30-Day Program</p>
+    <h1>30 Days. 6 Sessions. Real, Measurable Edge Improvement &mdash; On Video.</h1>
+    <p class="subhead">For players who want results they can <em>see</em> &mdash; and parents who want proof before committing to a full program. Six private sessions over four weeks, anchored by before-and-after video that shows exactly how far you've come.</p>
+    <a href="apply.html" class="btn btn--primary btn--large">Start Your Edge Sprint &rarr;</a>
+  </div>
+</section>
+
+<!-- ── The Program ── -->
+<section>
+  <div class="container">
+    <p class="section__label">How It Works</p>
+    <h2 class="section__headline">Six sessions. Four weeks. One clear outcome.</h2>
+
+    <div class="timeline">
+      <div class="timeline-week">
+        <div class="timeline-week__label">Week 1</div>
+        <div class="timeline-week__sessions">2</div>
+        <p>Sessions 1 &amp; 2. Baseline video recorded. Edge pattern diagnosis. Priority mechanics identified.</p>
+      </div>
+      <div class="timeline-week">
+        <div class="timeline-week__label">Week 2</div>
+        <div class="timeline-week__sessions">2</div>
+        <p>Sessions 3 &amp; 4. Targeted drill work on highest-leverage weaknesses. Technique notes provided.</p>
+      </div>
+      <div class="timeline-week">
+        <div class="timeline-week__label">Week 3</div>
+        <div class="timeline-week__sessions">1</div>
+        <p>Session 5. Mid-program check. Adjustments based on progress. Pattern reinforcement.</p>
+      </div>
+      <div class="timeline-week">
+        <div class="timeline-week__label">Week 4</div>
+        <div class="timeline-week__sessions">1</div>
+        <p>Session 6. Final session. Post-program video recorded. Side-by-side comparison available.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── What's Included ── -->
+<section class="section--alt">
+  <div class="container">
+    <p class="section__label">What's Included</p>
+    <h2 class="section__headline">Six private sessions and documented proof of the difference.</h2>
+
+    <ul class="included-list">
+      <li>
+        <span class="check">&#10003;</span>
+        <div>
+          <strong>6 Private On-Ice Sessions with Stephanie</strong>
+          <span>Over 4 weeks at a Twin Cities rink. No groups. No shared time. Every minute focused on your edge mechanics.</span>
+        </div>
+      </li>
+      <li>
+        <span class="check">&#10003;</span>
+        <div>
+          <strong>Before/After Video Analysis</strong>
+          <span>Recorded at Session 1 and Session 6. See the difference side by side. That's not a promise &mdash; it's a deliverable.</span>
+        </div>
+      </li>
+      <li>
+        <span class="check">&#10003;</span>
+        <div>
+          <strong>Ongoing Technique Notes</strong>
+          <span>Between-session notes from Stephanie on what to focus on, what's improving, and what to reinforce before the next session.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── For Player + For Parent ── -->
+<section>
+  <div class="container">
+    <p class="section__label">Who This Is For</p>
+    <h2 class="section__headline">Players ready to do the work. Parents ready to see the results.</h2>
+
+    <div class="two-col" style="margin-top: 3rem;">
+      <div class="audience-block">
+        <h3>For the Player</h3>
+        <p>You've had the Edge Audit. You know your edge mechanics. Now it's time to fix them.</p>
+        <p>The Edge Sprint targets your highest-leverage weaknesses &mdash; the specific edge patterns that are costing you the most on the ice &mdash; and drives measurable improvement in 30 days. Six sessions with Stephanie, focused and intentional.</p>
+        <p>Not scattered. Not generic. Built around your mechanics, your game, your next evaluation.</p>
+      </div>
+      <div class="audience-block">
+        <h3>For the Parent</h3>
+        <p>You want to see results before making a larger commitment. The Edge Sprint is designed for exactly that.</p>
+        <p>We record your player at the start of Session 1 and at the end of Session 6. You see the difference. Before and after. On video. That is the proof-of-concept that lets you decide whether the 90-Day Protocol is the right next step.</p>
+        <p>No vague progress updates. No "we're working on it." A side-by-side video of where your player started and where they finished in 30 days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Social Proof Hook ── -->
+<section class="section--mist">
+  <div class="container container--narrow" style="text-align: center;">
+    <p class="section__label">The Deliverable</p>
+    <blockquote style="text-align: left; max-width: 600px; margin: 2rem auto;">"The Edge Sprint isn't a soft commitment to improvement. It's six sessions with a defined endpoint and a video that shows exactly what changed."</blockquote>
+    <div class="stat-row" style="grid-template-columns: repeat(3, 1fr); margin-top: 3rem;">
+      <div class="stat">
+        <div class="stat__number">6</div>
+        <div class="stat__label">Private Sessions</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">30</div>
+        <div class="stat__label">Days to Results</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">2</div>
+        <div class="stat__label">Video Sessions (Before &amp; After)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to see the difference&nbsp;on&nbsp;video?</h2>
+    <p>Six sessions. Four weeks. A before-and-after video that shows exactly what changed.</p>
+    <a href="apply.html" class="btn btn--pearl btn--large">Start Your Edge Sprint &rarr;</a>
+  </div>
+</section>
+
+<!-- ── Bridge to 90-Day Protocol ── -->
+<section class="bridge-section">
+  <div class="container container--narrow">
+    <p class="section__label" style="color: var(--lagoon);">Ready for More?</p>
+    <h2>Players completing the Edge Sprint have a foundation.</h2>
+    <p>The 90-Day Edge Protocol takes that foundation and builds a complete elite-level skater &mdash; the kind of transformation that moves the needle in recruiting conversations. If the Edge Sprint shows you what's possible, the 90-Day Protocol is where that potential becomes a permanent part of your player's game.</p>
+    <a href="90-day-protocol.html" class="btn btn--outline" style="border-color: var(--platinum); color: var(--platinum);">Learn about the 90-Day Protocol &rarr;</a>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer__wordmark">Steph<span>Skates</span></div>
+        <div class="footer__tagline">Edges First. Always.</div>
+      </div>
+      <ul class="footer__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Stephanie</a></li>
+        <li><a href="edge-audit.html">Edge Audit</a></li>
+        <li><a href="edge-sprint.html">Edge Sprint</a></li>
+        <li><a href="90-day-protocol.html">90-Day Protocol</a></li>
+        <li><a href="pilot.html">Founding Cohort</a></li>
+        <li><a href="apply.html">Apply</a></li>
+      </ul>
+      <div>
+        <p style="font-size: 0.9rem; color: var(--mist);">The Edge Protocol<br>Twin Cities, MN</p>
+        <p style="font-size: 0.85rem; color: var(--slate); margin-top: 0.5rem;">The jump to elite starts with your edges.</p>
+      </div>
+    </div>
+    <p class="footer__copy">&copy; 2026 Steph Skates. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
