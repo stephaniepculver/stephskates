@@ -601,3 +601,110 @@ section + section {
 @media (max-width: 480px) {
   .stat-row { grid-template-columns: 1fr; }
 }
+
+/* =========================================
+   HEADING UTILITY CLASSES (EDG-164)
+   ========================================= */
+.h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 700;
+  color: var(--lagoon-blue);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.h2 {
+  font-family: var(--font-body);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+  color: var(--deep-graphite);
+  line-height: 1.25;
+}
+
+.h3 {
+  font-family: var(--font-body);
+  font-size: clamp(18px, 2vw, 20px);
+  font-weight: 500;
+  color: var(--deep-graphite);
+  line-height: 1.3;
+}
+
+.caption {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--blue-slate);
+  line-height: 1.5;
+}
+
+/* =========================================
+   MEDIA PLACEHOLDER BLOCK (EDG-164)
+   ========================================= */
+.media-placeholder {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  background-color: var(--mist-gray);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.media-placeholder__caption {
+  margin-top: 10px;
+}
+
+/* =========================================
+   REUSABLE SECTION TEMPLATES (EDG-164)
+   ========================================= */
+.section-text-only {
+  padding: 100px 0;
+}
+
+.section-text-only .section-body {
+  max-width: 760px;
+}
+
+.section-text-image-left,
+.section-text-image-right {
+  padding: 100px 0;
+}
+
+.section-text-image-left .section-inner,
+.section-text-image-right .section-inner {
+  display: grid;
+  gap: 64px;
+  align-items: center;
+}
+
+.section-text-image-left .section-inner  { grid-template-columns: 60fr 40fr; }
+.section-text-image-right .section-inner { grid-template-columns: 40fr 60fr; }
+
+.section-text-image-right .section-text { order: 2; }
+.section-text-image-right .section-media { order: 1; }
+
+.section-full-media {
+  padding: 100px 0;
+}
+
+.section-full-media .media-placeholder {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .section-text-image-left .section-inner,
+  .section-text-image-right .section-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .section-text-image-right .section-text,
+  .section-text-image-right .section-media { order: unset; }
+
+  .section-text-only,
+  .section-text-image-left,
+  .section-text-image-right,
+  .section-full-media {
+    padding: 60px 0;
+  }
+}
