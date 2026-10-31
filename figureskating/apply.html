@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply — Figure Skating Coaching | Steph Skates</title>
+  <meta name="description" content="Apply to work with Stephanie Culver — private figure skating lessons, test prep, tryout prep, and virtual assessments. For competitive and test-track skaters of all levels." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #6D93A7;
+      --dark-base: #31363D;
+      --secondary: #7D8FA3;
+      --light-bg: #D2D8DD;
+      --white-bg: #F5F6F7;
+      --platinum: #BFC5C9;
+      --mauve: #88728A;
+      --error: #C0392B;
+      --success: #2D6A4F;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white-bg);
+      color: var(--dark-base);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--white-bg);
+      border-bottom: 1px solid var(--platinum);
+      z-index: 100;
+      padding: 16px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--dark-base);
+    }
+
+    .logo span { color: var(--primary); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--secondary);
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    @media (max-width: 768px) {
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 13px; }
+    }
+
+    .page-wrapper {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+    }
+
+    .page-header {
+      margin-bottom: 40px;
+    }
+
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--dark-base);
+      margin-bottom: 14px;
+    }
+
+    .page-header p {
+      font-size: 0.95rem;
+      color: var(--secondary);
+      max-width: 560px;
+    }
+
+    .form-section {
+      background: #fff;
+      border: 1px solid var(--platinum);
+      border-radius: 10px;
+      padding: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .form-section { padding: 24px 20px; }
+    }
+
+    .form-group-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      border-bottom: 1px solid var(--light-bg);
+      padding-bottom: 8px;
+      margin: 32px 0 20px;
+    }
+
+    .form-group-label:first-child { margin-top: 0; }
+
+    .field-group { margin-bottom: 20px; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 520px) {
+      .field-row { grid-template-columns: 1fr; }
+    }
+
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--dark-base);
+      margin-bottom: 6px;
+    }
+
+    label .required { color: var(--error); margin-left: 2px; }
+    label .optional { font-weight: 400; color: var(--secondary); font-size: 0.78rem; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--platinum);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: var(--dark-base);
+      background: var(--white-bg);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="number"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+    }
+
+    input.invalid, select.invalid, textarea.invalid {
+      border-color: var(--error);
+    }
+
+    select { cursor: pointer; }
+    textarea { resize: vertical; min-height: 80px; }
+
+    .field-error {
+      font-size: 0.78rem;
+      color: var(--error);
+      margin-top: 4px;
+      display: none;
+    }
+
+    .field-error.visible { display: block; }
+
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid var(--platinum);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 500;
+      user-select: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .radio-option input[type="radio"] {
+      width: auto;
+      margin: 0;
+      accent-color: var(--primary);
+    }
+
+    .radio-option:has(input:checked) {
+      border-color: var(--primary);
+      background: rgba(109,147,167,0.08);
+    }
+
+    .char-count {
+      font-size: 0.75rem;
+      color: var(--secondary);
+      text-align: right;
+      margin-top: 4px;
+    }
+
+    .char-count.near-limit { color: var(--error); }
+
+    .submit-area {
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 15px 48px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      background: var(--dark-base);
+      transform: translateY(-1px);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .submit-note {
+      font-size: 0.78rem;
+      color: var(--secondary);
+      margin-top: 10px;
+    }
+
+    .form-error-banner {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: #fdf0ef;
+      border: 1px solid #f5c6c2;
+      border-radius: 6px;
+      font-size: 0.84rem;
+      color: var(--error);
+      display: none;
+    }
+
+    .form-error-banner.visible { display: block; }
+
+    #success-view {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .check-icon {
+      font-size: 2.5rem;
+      color: var(--success);
+      margin-bottom: 16px;
+    }
+
+    #success-view h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    #success-view p {
+      color: var(--secondary);
+      margin-bottom: 24px;
+    }
+
+    #success-view a {
+      font-size: 0.88rem;
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: var(--secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">Steph<span>Skates</span></a>
+      <div class="nav-links">
+        <a href="/figureskating">Figure Skating</a>
+        <a href="/hockey">Hockey</a>
+        <a href="https://calendar.app.google/U8hBmkAjbMytC3xX8" target="_blank" rel="noopener">Book a Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <div class="page-header">
+      <h1>Apply for Figure Skating Coaching with Stephanie</h1>
+      <p>Takes about 5 minutes. No commitment required — Stephanie will review your application and reach out within 48 hours to talk through the right fit.</p>
+    </div>
+
+    <div class="form-section">
+
+      <div id="success-view">
+        <div class="check-icon">✓</div>
+        <h2>Application Submitted</h2>
+        <p>Thank you — Stephanie will review your application and be in touch within 48 hours.</p>
+        <a href="/figureskating">← Back to Figure Skating</a>
+      </div>
+
+      <form id="apply-form" novalidate>
+        <input type="hidden" name="sport" value="Figure Skating" />
+        <input type="hidden" name="_subject" value="Figure skating coaching application — stephskates.com" />
+
+        <div class="form-group-label">Skater Information</div>
+
+        <div class="field-group">
+          <div class="field-row">
+            <div>
+              <label for="skater-first">First name <span class="required">*</span></label>
+              <input type="text" id="skater-first" name="skater_first_name" autocomplete="given-name" placeholder="First name" />
+              <div class="field-error" id="skater-first-error">Please enter the skater's first name.</div>
+            </div>
+            <div>
+              <label for="skater-last">Last name <span class="required">*</span></label>
+              <input type="text" id="skater-last" name="skater_last_name" autocomplete="family-name" placeholder="Last name" />
+              <div class="field-error" id="skater-last-error">Please enter the skater's last name.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="skater-birth-year">Birth year <span class="required">*</span></label>
+          <input type="number" id="skater-birth-year" name="skater_birth_year" min="1985" max="2020" placeholder="e.g. 2010" style="max-width: 180px;" />
+          <div class="field-error" id="skater-birth-year-error">Please enter a valid birth year.</div>
+        </div>
+
+        <div class="field-group">
+          <label for="skater-discipline">Primary discipline <span class="required">*</span></label>
+          <select id="skater-discipline" name="skater_discipline">
+            <option value="">Select discipline…</option>
+            <option value="Freestyle / Singles">Freestyle / Singles</option>
+            <option value="Ice Dance">Ice Dance</option>
+            <option value="Synchronized Skating">Synchronized Skating</option>
+            <option value="Pairs">Pairs</option>
+            <option value="Multiple disciplines">Multiple disciplines</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+          <div class="field-error" id="skater-discipline-error">Please select a discipline.</div>
+        </div>
+
+        <div class="field-group">
+          <label for="skater-level">Current level / track <span class="required">*</span></label>
+          <select id="skater-level" name="skater_level">
+            <option value="">Select level…</option>
+            <option value="Basic Skills / Snowplow Sam">Basic Skills / Snowplow Sam</option>
+            <option value="Pre-Preliminary test prep">Pre-Preliminary test prep</option>
+            <option value="Preliminary test prep">Preliminary test prep</option>
+            <option value="Pre-Juvenile / Juvenile test prep">Pre-Juvenile / Juvenile test prep</option>
+            <option value="Intermediate / Novice test prep">Intermediate / Novice test prep</option>
+            <option value="Junior / Senior">Junior / Senior</option>
+            <option value="Adult track">Adult track</option>
+            <option value="Synchro team member">Synchro team member</option>
+            <option value="Ice dance — just starting">Ice dance — just starting</option>
+          </select>
+          <div class="field-error" id="skater-level-error">Please select a level.</div>
+        </div>
+
+        <div class="field-group">
+          <label for="skater-club">Club or home rink <span class="optional">(optional)</span></label>
+          <input type="text" id="skater-club" name="skater_club" placeholder="e.g. Twin Cities FSC, Richfield Ice Arena" />
+        </div>
+
+        <div class="form-group-label">Skating Context</div>
+
+        <div class="field-group">
+          <label for="skater-goal">What are you working toward? <span class="required">*</span></label>
+          <textarea id="skater-goal" name="skater_goal" maxlength="300" placeholder="e.g. passing my Juvenile moves test, cleaning up jumps before synchro tryouts, improving edges for IJS scores…"></textarea>
+          <div class="char-count" id="goal-char-count">0 / 300</div>
+          <div class="field-error" id="skater-goal-error">Please describe what the skater is working toward.</div>
+        </div>
+
+        <div class="field-group">
+          <label>Have you received feedback on edge technique from a coach or judge? <span class="required">*</span></label>
+          <div class="radio-group" id="edge-feedback-group">
+            <label class="radio-option">
+              <input type="radio" name="edge_feedback_received" value="Yes" />
+              Yes
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="edge_feedback_received" value="No" />
+              No
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="edge_feedback_received" value="Unsure" />
+              Unsure
+            </label>
+          </div>
+          <div class="field-error" id="edge-feedback-error">Please select an option.</div>
+        </div>
+
+        <div class="form-group-label">Contact Information</div>
+
+        <div class="field-group">
+          <div class="field-row">
+            <div>
+              <label for="contact-first">Your first name <span class="required">*</span></label>
+              <input type="text" id="contact-first" name="contact_first_name" autocomplete="given-name" placeholder="First name" />
+              <div class="field-error" id="contact-first-error">Please enter your first name.</div>
+            </div>
+            <div>
+              <label for="contact-last">Your last name <span class="required">*</span></label>
+              <input type="text" id="contact-last" name="contact_last_name" autocomplete="family-name" placeholder="Last name" />
+              <div class="field-error" id="contact-last-error">Please enter your last name.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="email">Email address <span class="required">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" />
+          <div class="field-error" id="email-error">Please enter a valid email address.</div>
+        </div>
+
+        <div class="field-group">
+          <label for="phone">Phone number <span class="optional">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(612) 555-0100" />
+        </div>
+
+        <div class="field-group">
+          <label for="referral-source">How did you hear about Stephanie? <span class="required">*</span></label>
+          <select id="referral-source" name="referral_source">
+            <option value="">Select…</option>
+            <option value="Social media">Social media</option>
+            <option value="Referral">Referral</option>
+            <option value="Google">Google</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="field-error" id="referral-source-error">Please select how you heard about us.</div>
+        </div>
+
+        <div class="submit-area">
+          <button type="submit" class="submit-btn" id="submit-btn">Submit Application</button>
+          <p class="submit-note">Stephanie reviews every application within 48 hours.</p>
+          <div class="form-error-banner" id="form-error-banner">
+            Something went wrong. Please try again or email <strong>stephsk8s@gmail.com</strong> directly.
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Stephanie Culver Coaching. Twin Cities, Minnesota.</p>
+  </footer>
+
+  <script>
+    const goalDesc = document.getElementById('skater-goal');
+    const goalCount = document.getElementById('goal-char-count');
+    goalDesc.addEventListener('input', function () {
+      const len = this.value.length;
+      goalCount.textContent = len + ' / 300';
+      goalCount.classList.toggle('near-limit', len >= 270);
+    });
+
+    function setError(fieldId, errorId, show) {
+      const field = document.getElementById(fieldId);
+      const error = document.getElementById(errorId);
+      if (show) { field.classList.add('invalid'); error.classList.add('visible'); }
+      else { field.classList.remove('invalid'); error.classList.remove('visible'); }
+      return !show;
+    }
+
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    }
+
+    function validateForm() {
+      let valid = true;
+
+      valid = setError('skater-first', 'skater-first-error',
+        !document.getElementById('skater-first').value.trim()) && valid;
+      valid = setError('skater-last', 'skater-last-error',
+        !document.getElementById('skater-last').value.trim()) && valid;
+
+      const year = parseInt(document.getElementById('skater-birth-year').value, 10);
+      valid = setError('skater-birth-year', 'skater-birth-year-error',
+        isNaN(year) || year < 1985 || year > 2020) && valid;
+
+      valid = setError('skater-discipline', 'skater-discipline-error',
+        !document.getElementById('skater-discipline').value) && valid;
+      valid = setError('skater-level', 'skater-level-error',
+        !document.getElementById('skater-level').value) && valid;
+      valid = setError('skater-goal', 'skater-goal-error',
+        !document.getElementById('skater-goal').value.trim()) && valid;
+
+      const feedbackSelected = document.querySelector('input[name="edge_feedback_received"]:checked');
+      const feedbackError = document.getElementById('edge-feedback-error');
+      if (!feedbackSelected) { feedbackError.classList.add('visible'); valid = false; }
+      else { feedbackError.classList.remove('visible'); }
+
+      valid = setError('contact-first', 'contact-first-error',
+        !document.getElementById('contact-first').value.trim()) && valid;
+      valid = setError('contact-last', 'contact-last-error',
+        !document.getElementById('contact-last').value.trim()) && valid;
+
+      const emailVal = document.getElementById('email').value;
+      valid = setError('email', 'email-error', !isValidEmail(emailVal)) && valid;
+
+      valid = setError('referral-source', 'referral-source-error',
+        !document.getElementById('referral-source').value) && valid;
+
+      return valid;
+    }
+
+    ['skater-first','skater-last','skater-birth-year','skater-discipline','skater-level',
+     'skater-goal','contact-first','contact-last','email','referral-source'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', function () {
+          this.classList.remove('invalid');
+          const err = document.getElementById(id + '-error');
+          if (err) err.classList.remove('visible');
+        });
+      }
+    });
+
+    document.querySelectorAll('input[name="edge_feedback_received"]').forEach(radio => {
+      radio.addEventListener('change', function () {
+        document.getElementById('edge-feedback-error').classList.remove('visible');
+      });
+    });
+
+    document.getElementById('apply-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        const firstError = document.querySelector('.invalid, .field-error.visible');
+        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const btn = document.getElementById('submit-btn');
+      const errorBanner = document.getElementById('form-error-banner');
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+      errorBanner.classList.remove('visible');
+
+      const formData = new FormData(this);
+
+      try {
+        const FORMSPREE_ID = 'mvzjgnek';
+        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          document.getElementById('apply-form').style.display = 'none';
+          document.querySelector('.page-header').style.display = 'none';
+          document.getElementById('success-view').style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error('Server error');
+        }
+      } catch (err) {
+        errorBanner.classList.add('visible');
+        btn.disabled = false;
+        btn.textContent = 'Submit Application';
+        errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>
